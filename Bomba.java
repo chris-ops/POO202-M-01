@@ -8,7 +8,7 @@ import javax.swing.JRadioButton;
 public class Bomba {
 
 	private JFrame frame;
-	private Informacoes info;
+	private Informacao info;
 	private JTextField tfDescricao;
 	/**
 	 * Launch the application.
