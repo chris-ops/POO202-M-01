@@ -1,0 +1,66 @@
+Raciocínio Lógico:
+
+1- Faço aula de inglês ou jogo. Estudo programação ou faço aula de inglês. Estudo programação ou não durmo. Ora, durmo. Logo:
+V a)Estudo programação e jogo.
+b)Estudo progrmação e faço aula de inglês.
+c)Faço aula de inglês e durmo.
+d)Não estudo programação e não durmo.
+
+2- Faço café forte ou minha mãe gosta do café. Minha mãe não gosta do café ou o café é quente. Ora, o café é quente. Portanto:
+a) O café é fraco e minha mãe gosta.
+V b) O café é quente e não é forte.
+c) O café não é quente e minha mãe gosta.
+d) O café não é quente nem forte.
+
+
+Lógica Proposicional:
+
+1- Dado o argumento "Se a propaganda do politico foi boa, ele ganhou mais votos. Ou ele ganhou mais votos ou ele não se elegeu. A propaganda foi boa. Logo, o politico se elegeu."
+Com:
+ X - A propaganda foi boa. 
+ Y - O político ganhou mais votos.
+ Z - O político se elegeu.
+ A correta formalização do problema para a linguagem simbólica da lógica proposicional seria:
+
+a) (X -> Y) ^ ((Y v ~X) ^ Y) -> Y
+V b) (X -> Y) ^ ((Y v ~Z) ^ Y) -> Z
+c) (X -> ~Y) ^ ((Y v Z) ^ Y) -> ~X
+d) (X -> Y) ^ ((Y v ~Z) ^ Y) -> ~Y
+
+2-Um jovem, ao ser flagrado no aeroporto portando certa quantidade de entorpecentes, argumentou com os policiais conforme o esquema a seguir:
+
+Premissa 1: Eu não sou traficante, eu sou usuário;
+Premissa 2: Se eu fosse traficante, estaria levando uma grande quantidade de droga e a teria escondido;
+Premissa 3: Como sou usuário e não levo uma grande quantidade, não escondi a droga.
+Conclusão: Se eu estivesse levando uma grande quantidade, não seria usuário.
+
+Considerando a situação hipotética apresentada acima, julgue os itens a seguir.
+Se P e Q representam, respectivamente, as proposições “Eu não sou traficante” e “Eu sou usuário”, então a premissa 1 estará corretamente representada por:
+
+a) ~P ^ Q
+b) P v Q
+c) P -> ~Q
+V d) P ^ Q
+
+Lógica de Predicados:
+
+1-
+a)
+b)
+V c)
+d)
+
+2- 
+V a)
+b)
+c)
+d)
+
+
+
+
+
+
+Conhecimentos:
+- randomização
+- como salvar os dados
