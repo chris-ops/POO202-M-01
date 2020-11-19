@@ -1,17 +1,16 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JTextField;
+
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.JTabbedPane;
+
 import javax.swing.JPanel;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
+
 import javax.swing.JTable;
 
 import javax.swing.text.AttributeSet;
@@ -22,7 +21,7 @@ import javax.swing.text.StyleContext;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.Random;
+
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -32,19 +31,16 @@ import javax.swing.JTextPane;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 
-public class Enigma4 {
+public class Enigma4 extends Enigma{
 	
 	private JFrame frame;
 	private JPanel[] panels = new JPanel[6];
 	private JTable table;
-	private boolean estado = false;
-	private int qtdAtivacoes;
-	private int qtdUsos;
-	private int qtdDecifrados;
-	private int qtdErros;
-	private String descricao;
+
+
 	protected static EnigmaLevel level;
-	private ModuloM01 m;
+
+	private JPanel panel;
 
 
 	/**
@@ -76,14 +72,14 @@ public class Enigma4 {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.PINK);
+		frame.getContentPane().setBackground(Color.RED);
 		frame.setBounds(100, 100, 300, 250);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.PINK);
-		panel.setBounds(0, 0, 281, 179);
+		panel = new JPanel();
+		panel.setBackground(Color.RED);
+		panel.setBounds(0, 0, 284, 211);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -132,6 +128,7 @@ public class Enigma4 {
 							 clip = AudioSystem.getClip();
 				              clip.open(sound);
 				              clip.start();
+				              panel.setBackground(Color.GREEN);
 				              setQtdDecifrados(getQtdDecifrados()+1);
 				              System.out.println(getQtdDecifrados());
 						} catch (UnsupportedAudioFileException e1) {
@@ -270,67 +267,11 @@ public class Enigma4 {
 		btnSubmeterTabela.setBounds(21, 121, 79, 23);
 		panel_1.add(btnSubmeterTabela);
 	}
-		
-		public Enigma4(int qtdAtivacoes, int qtdUsos, int qtdDecifrados, int qtdErros, String descricao, EnigmaLevel level) {
-			super();
-			this.qtdAtivacoes = qtdAtivacoes;
-			this.qtdUsos = qtdUsos;
-			this.qtdDecifrados = qtdDecifrados;
-			this.qtdErros = qtdErros;
-			this.descricao = descricao;
-			
-		
-		}
-		public int getQtdAtivacoes() {
-			return qtdAtivacoes;
-		}
-		public void setQtdAtivacoes(int qtdAtivacoes) {
-			this.qtdAtivacoes = qtdAtivacoes;
-		}
-		public int getQtdUsos() {
-			return qtdUsos;
-		}
-		public void setQtdUsos(int qtdUsos) {
-			this.qtdUsos = qtdUsos;
-		}
-		public int getQtdDecifrados() {
-			return qtdDecifrados;
-		}
-		public void setQtdDecifrados(int qtdDecifrados) {
-			this.qtdDecifrados = qtdDecifrados;
-		}
-		public int getQtdErros() {
-			return qtdErros;
-		}
-		public void setQtdErros(int qtdErros) {
-			this.qtdErros = qtdErros;
-		}
-		public String getDescricao() {
-			return descricao;
-		}
-		public void setDescricao(String descricao) {
-			this.descricao = descricao;
-		}
 
-		public EnigmaLevel getLevel() {
-			return level;
-		}
-		public void setLevel(EnigmaLevel level) {
-			Enigma4.level = level;
-		}
 		public JPanel getPanel() {
-			Random rd = new Random();
-			int randomPanel = rd.nextInt();
-			return panels[randomPanel];
-		}
-	
-		public boolean isEstado() {
-			return estado;
+			return panel;
 		}
 
-		public void setEstado(boolean estado) {
-			this.estado = estado;
-		}
 		
 	    private void appendToPane(JTextPane tp, String msg, Color c)
 	    {

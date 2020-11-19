@@ -34,7 +34,7 @@ import javax.sound.sampled.LineUnavailableException;
 public class Bomba implements BombInterface{
 	
 	JFrame frame;
-	private Modulo module;
+	private ModuloM01 module;
 	private JTable table;
 
 	/**

@@ -1,22 +1,27 @@
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-
 
 import javax.swing.JPanel;
 
 
-public class ModuloM01 implements ModuleInterface {
+public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 
-	private ArrayList<Enigmas> enigmas = new ArrayList<>();
-	LogicaPredicados lp = new LogicaPredicados(0, 0, 0, 0, null);
-	Enigmas ea;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private ArrayList<Enigma> Enigma = new ArrayList<>();
+	Enigma ea;
 	
 	
-	public void addModulo(Enigmas e) {
+	public void addModulo(Enigma e) {
 		if(e == null) {
 			throw new IllegalArgumentException("testando...");
 		}
-		this.enigmas.add(e);
+		this.Enigma.add(e);
 	}
 
 
@@ -60,16 +65,41 @@ public class ModuloM01 implements ModuleInterface {
 
 	@Override
 	public JPanel getPanel(byte arg0) {
-		return ea.getPanel();
-			
-			
+		ea = Enigma.get(arg0-1);
+		JPanel j = ea.getPanel();
+		System.out.println("asd");
+		return j;
+
 		
 	}
+	public void serialize() {
+		String filename = "ModuloM01"; 
+		try
+        {    
+            //Saving of object in a file 
+            FileOutputStream file = new FileOutputStream(filename); 
+            ObjectOutputStream out = new ObjectOutputStream(file); 
+              
+            // Method for serialization of object 
+            out.writeObject(this); 
+              
+            out.close(); 
+            file.close(); 
+              
+            System.out.println("Object has been serialized"); 
+  
+        } 
+          
+        catch(IOException ex) 
+        { 
+            System.out.println("IOException is caught"); 
+        } 
 
+	}
 
 	@Override
 	public boolean isDefused() {
 		return ea.isEstado();
 	}
-	
+
 }

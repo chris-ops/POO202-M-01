@@ -9,7 +9,6 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import javax.swing.JButton;
 
-
 import javax.swing.text.AttributeSet;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -28,25 +27,23 @@ import javax.swing.JTextPane;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 
-public class Enigma3 extends Enigma{
-	
+public class Enigma1 extends Enigma{
+
 	private JFrame frame;
 
-
-
 	protected static EnigmaLevel level;
-
+	private ModuloM01 m;
 	private JPanel panel;
-	
 
 	/**
 	 * Launch the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Enigma3 window = new Enigma3();
+					Enigma1 window = new Enigma1();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -59,12 +56,7 @@ public class Enigma3 extends Enigma{
 	 * Create the application.
 	 * @wbp.parser.entryPoint
 	 */
-	public Enigma3() {
-		initialize();
-	}
-
-
-
+	
 
 	/**
 	 * Initialize the contents of the frame.
@@ -78,7 +70,7 @@ public class Enigma3 extends Enigma{
 		
 		panel = new JPanel();
 		panel.setBackground(Color.RED);
-		panel.setBounds(0, 0, 281, 211);
+		panel.setBounds(0, 0, 284, 211);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -127,9 +119,10 @@ public class Enigma3 extends Enigma{
 							 clip = AudioSystem.getClip();
 				              clip.open(sound);
 				              clip.start();
-				              setQtdDecifrados(getQtdDecifrados()+1);
-				              System.out.println(getQtdDecifrados());
 				              panel.setBackground(Color.GREEN);
+				              setQtdDecifrados(getQtdDecifrados()+1);
+				              System.out.println(getQtdDecifrados());  
+				              m.serialize();
 						} catch (UnsupportedAudioFileException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -140,6 +133,9 @@ public class Enigma3 extends Enigma{
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
+					 catch (NullPointerException e1) {
+						 System.out.println("asd");
+					}
 					}
 
 			}
@@ -223,20 +219,18 @@ public class Enigma3 extends Enigma{
 		scrollPane.setViewportView(textPane);
 	
 		JPanel panel_1 = new JPanel();
-		textPane.setText("1- Dado o argumento \"Se a propaganda do politico foi boa, ele ganhou mais votos. Ou ele ganhou mais votos ou ele não se elegeu. A propaganda foi boa. Logo, o politico se elegeu.\"\r\n" + 
-				"Com:\n");
-		appendToPane(textPane, "X - A propaganda foi boa. \n", Color.WHITE);
-		appendToPane(textPane, "Y - O político ganhou mais votos.\n", Color.WHITE);
-		appendToPane(textPane, "Z - O político se elegeu.\n", Color.WHITE);
-		appendToPane(textPane, "A correta formalização do problema para a linguagem simbólica da lógica proposicional seria:", Color.WHITE);
+		textPane.setText("Faço aula de inglês ou jogo.\nEstudo programação ou faço aula de inglês.\nEstudo programação ou não durmo.\nOra, durmo. Logo:\n");
+		appendToPane(textPane, "a)Estudo programação e jogo.\n", Color.MAGENTA);
+		appendToPane(textPane, "b)Estudo progrmação e faço aula de inglês.\n", Color.GREEN);
+		appendToPane(textPane, "c)Faço aula de inglês e durmo.\n", Color.YELLOW);
+		appendToPane(textPane, "d)Não estudo programação e não durmo.", Color.CYAN);
 		panel_1.setLayout(null);
 
 	}
-	
+
 		public JPanel getPanel() {
 			return panel;
 		}
-		
 
 	    private void appendToPane(JTextPane tp, String msg, Color c)
 	    {
