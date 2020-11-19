@@ -44,6 +44,7 @@ public class Enigmas {
 	private int qtdErros;
 	private String descricao;
 	protected static EnigmaLevel level;
+	private Modulo m;
 
 
 	/**
@@ -97,6 +98,9 @@ public class Enigmas {
 							 clip = AudioSystem.getClip();
 				              clip.open(sound);
 				              clip.start();
+				              setQtdErros(getQtdErros()+1);
+				              System.out.println(getQtdErros());
+				            //  m.attach(arg0);
 						} catch (UnsupportedAudioFileException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -128,6 +132,8 @@ public class Enigmas {
 							 clip = AudioSystem.getClip();
 				              clip.open(sound);
 				              clip.start();
+				              setQtdDecifrados(getQtdDecifrados()+1);
+				              System.out.println(getQtdDecifrados());
 						} catch (UnsupportedAudioFileException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -158,6 +164,9 @@ public class Enigmas {
 						 clip = AudioSystem.getClip();
 			              clip.open(sound);
 			              clip.start();
+			              setQtdErros(getQtdErros()+1);
+			              System.out.println(getQtdErros());
+			          //  m.attach(arg0);
 					} catch (UnsupportedAudioFileException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -187,6 +196,9 @@ public class Enigmas {
 						 clip = AudioSystem.getClip();
 			              clip.open(sound);
 			              clip.start();
+			              setQtdErros(getQtdErros()+1);
+			              System.out.println(getQtdErros());
+			          //  m.attach(arg0);
 					} catch (UnsupportedAudioFileException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
