@@ -44,7 +44,7 @@ public class Enigma2 {
 	private int qtdErros;
 	private String descricao;
 	protected static EnigmaLevel level;
-	private Modulo m;
+	private ModuloM01 m;
 
 
 	/**
