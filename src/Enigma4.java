@@ -33,31 +33,24 @@ import javax.sound.sampled.LineUnavailableException;
 
 public class Enigma4 extends Enigma{
 	
-	private JFrame frame;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel[] panels = new JPanel[6];
 	private JTable table;
 
 
 	protected static EnigmaLevel level;
-
+	
 	private JPanel panel;
 
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Enigma4 window = new Enigma4();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.
@@ -71,22 +64,21 @@ public class Enigma4 extends Enigma{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.RED);
-		frame.setBounds(100, 100, 300, 250);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		System.out.println("4");
 		
 		panel = new JPanel();
 		panel.setBackground(Color.RED);
-		panel.setBounds(0, 0, 284, 211);
-		frame.getContentPane().add(panel);
+		panel.setBounds(0, 0, 350, 250);
+	
 		panel.setLayout(null);
 		
 		JButton btnAlternativa1 = new JButton();
 		btnAlternativa1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 Clip clip;
+	              setQtdErros(getQtdErros()+1);
+	              System.out.println(getQtdErros());
+	              m.serialize();
+				Clip clip;
 					File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\hitsound.wav");
 					if (file.exists()) {
 						try {
@@ -94,9 +86,6 @@ public class Enigma4 extends Enigma{
 							 clip = AudioSystem.getClip();
 				              clip.open(sound);
 				              clip.start();
-				              setQtdErros(getQtdErros()+1);
-				              System.out.println(getQtdErros());
-				            //  m.attach(arg0);
 						} catch (UnsupportedAudioFileException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -119,7 +108,11 @@ public class Enigma4 extends Enigma{
 		JButton btnAlternativa2 = new JButton();
 		btnAlternativa2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 Clip clip;
+	              panel.setBackground(Color.GREEN);
+	              setQtdDecifrados(getQtdDecifrados()+1);
+	              System.out.println(getQtdDecifrados());
+	              m.serialize();
+				Clip clip;
 					File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\certo.wav");
 					setEstado(true);
 					if (file.exists()) {
@@ -128,9 +121,7 @@ public class Enigma4 extends Enigma{
 							 clip = AudioSystem.getClip();
 				              clip.open(sound);
 				              clip.start();
-				              panel.setBackground(Color.GREEN);
-				              setQtdDecifrados(getQtdDecifrados()+1);
-				              System.out.println(getQtdDecifrados());
+
 						} catch (UnsupportedAudioFileException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -153,6 +144,9 @@ public class Enigma4 extends Enigma{
 		JButton btnAlternativa3 = new JButton();
 		btnAlternativa3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+	              setQtdErros(getQtdErros()+1);
+	              System.out.println(getQtdErros());
+	              m.serialize();
 				Clip clip;
 				File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\hitsound.wav");
 				if (file.exists()) {
@@ -161,9 +155,7 @@ public class Enigma4 extends Enigma{
 						 clip = AudioSystem.getClip();
 			              clip.open(sound);
 			              clip.start();
-			              setQtdErros(getQtdErros()+1);
-			              System.out.println(getQtdErros());
-			          //  m.attach(arg0);
+
 					} catch (UnsupportedAudioFileException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -185,6 +177,9 @@ public class Enigma4 extends Enigma{
 		JButton btnAlternativa4 = new JButton();
 		btnAlternativa4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+	              setQtdErros(getQtdErros()+1);
+	              System.out.println(getQtdErros());
+	              m.serialize();
 				Clip clip;
 				File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\hitsound.wav");
 				if (file.exists()) {
@@ -193,9 +188,7 @@ public class Enigma4 extends Enigma{
 						 clip = AudioSystem.getClip();
 			              clip.open(sound);
 			              clip.start();
-			              setQtdErros(getQtdErros()+1);
-			              System.out.println(getQtdErros());
-			          //  m.attach(arg0);
+
 					} catch (UnsupportedAudioFileException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

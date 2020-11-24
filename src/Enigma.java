@@ -1,7 +1,13 @@
+import java.io.Serializable;
+
 import javax.swing.JPanel;
 
-public abstract class Enigma {
+public abstract class Enigma implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected int qtdAtivacoes;
 	protected int qtdUsos;
 	protected int qtdDecifrados;
@@ -9,6 +15,7 @@ public abstract class Enigma {
 	protected String descricao;
 	protected boolean estado = false;
 	protected EnigmaLevel level;
+	protected ModuloM01 m = new ModuloM01();
 	
 
 	
@@ -47,6 +54,7 @@ public abstract class Enigma {
 		return qtdErros;
 	}
 	public void setQtdErros(int qtdErros) {
+		
 		this.qtdErros = qtdErros;
 	}
 	public String getDescricao() {
