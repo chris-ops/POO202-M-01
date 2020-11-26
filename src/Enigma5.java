@@ -50,7 +50,8 @@ public class Enigma5 extends Enigma{
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public Enigma5() {
+	public Enigma5(ModuloM01 m) {
+		super(m);
 
 		panel = new JPanel();
 		panel.setBackground(Color.RED);

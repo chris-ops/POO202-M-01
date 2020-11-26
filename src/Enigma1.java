@@ -27,14 +27,16 @@ import javax.swing.JTextPane;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 
-public class Enigma1 extends Enigma{
+public class Enigma1 extends Enigma {
 
 	
+
+
 
 	protected static EnigmaLevel level;
 	
 	private JPanel panel;
-
+	private static ModuloM01 m = new ModuloM01();
 	/**
 	 * Launch the application.
 	 * @wbp.parser.entryPoint
@@ -49,9 +51,12 @@ public class Enigma1 extends Enigma{
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @param moduloM01 
 	 */
-	public Enigma1() {
+	
 
+	public Enigma1(ModuloM01 m) {
+		super(m);
 		panel = new JPanel();
 		panel.setBackground(Color.RED);
 		panel.setBounds(0, 0, 350, 250);
@@ -100,6 +105,7 @@ public class Enigma1 extends Enigma{
 		JButton btnAlternativa2 = new JButton();
 		btnAlternativa2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();
@@ -134,6 +140,7 @@ public class Enigma1 extends Enigma{
 		JButton btnAlternativa3 = new JButton();
 		btnAlternativa3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();
@@ -168,6 +175,7 @@ public class Enigma1 extends Enigma{
 		JButton btnAlternativa4 = new JButton();
 		btnAlternativa4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();

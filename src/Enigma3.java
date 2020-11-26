@@ -53,7 +53,8 @@ public class Enigma3 extends Enigma{
 	 * Create the application.
 	 * @wbp.parser.entryPoint
 	 */
-	public Enigma3() {
+	public Enigma3(ModuloM01 m) {
+		super(m);
 		initialize();
 	}
 
@@ -75,6 +76,7 @@ public class Enigma3 extends Enigma{
 		JButton btnAlternativa1 = new JButton();
 		btnAlternativa1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();
@@ -145,6 +147,7 @@ public class Enigma3 extends Enigma{
 		JButton btnAlternativa3 = new JButton();
 		btnAlternativa3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();
@@ -178,6 +181,7 @@ public class Enigma3 extends Enigma{
 		JButton btnAlternativa4 = new JButton();
 		btnAlternativa4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();

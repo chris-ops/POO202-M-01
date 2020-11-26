@@ -20,24 +20,26 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 	String filename = "ModuloM01";
 	FileOutputStream fileOut;
 	FileInputStream fileIn;
+	BombInterface bomb;
 	
 	
-	public void CreateModulo() {
-		Enigma a = new Enigma1();
-		Enigma b = new Enigma2();
-		Enigma c = new Enigma3();
-		Enigma d = new Enigma4();
+	public ModuloM01() {
+		Enigma a = new Enigma1(this);
+		Enigma b = new Enigma2(this);
+		Enigma c = new Enigma3(this);
+		Enigma d = new Enigma4(this);
 		enigmas.add(0, a);
 		enigmas.add(1, b);
 		enigmas.add(2, c);
 		enigmas.add(3, d);
-		
 	}
+
+
 
 
 	@Override
 	public void attach(BombInterface arg0) {
-			this.attach(arg0);
+			bomb = arg0;
 		}
 
 
@@ -146,5 +148,5 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 	public boolean isDefused() {
 		return ea.isEstado();
 	}
-	
+
 }

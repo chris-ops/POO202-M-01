@@ -15,22 +15,14 @@ public abstract class Enigma implements Serializable {
 	protected String descricao;
 	protected boolean estado = false;
 	protected EnigmaLevel level;
-	protected ModuloM01 m = new ModuloM01();
+	protected ModuloM01 m;
+	
 	
 
-	
-	
-	public Enigma(int qtdAtivacoes, int qtdUsos, int qtdDecifrados, int qtdErros, String descricao, EnigmaLevel level) {
+
+	public Enigma(ModuloM01 m) {
 		super();
-		this.qtdAtivacoes = qtdAtivacoes;
-		this.qtdUsos = qtdUsos;
-		this.qtdDecifrados = qtdDecifrados;
-		this.qtdErros = qtdErros;
-		this.descricao = descricao;
-	
-	}
-	public Enigma() {
-		// TODO Auto-generated constructor stub
+		this.m = m;
 	}
 	public int getQtdAtivacoes() {
 		return qtdAtivacoes;

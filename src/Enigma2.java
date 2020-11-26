@@ -59,8 +59,8 @@ public class Enigma2 extends Enigma {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public Enigma2() {
-
+	public Enigma2(ModuloM01 m) {
+		super(m);
 		panel = new JPanel();
 		panel.setBackground(Color.RED);
 		panel.setBounds(0, 0, 284, 211);
@@ -69,6 +69,7 @@ public class Enigma2 extends Enigma {
 		JButton btnAlternativa1 = new JButton();
 		btnAlternativa1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();
@@ -139,6 +140,7 @@ public class Enigma2 extends Enigma {
 		JButton btnAlternativa3 = new JButton();
 		btnAlternativa3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();
@@ -172,6 +174,7 @@ public class Enigma2 extends Enigma {
 		JButton btnAlternativa4 = new JButton();
 		btnAlternativa4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				m.bomb.addError();
 	              setQtdErros(getQtdErros()+1);
 	              System.out.println(getQtdErros());
 	              m.serialize();
