@@ -44,18 +44,26 @@ V d) P ^ Q
 
 Lógica de Predicados:
 
-1-
-a)
-b)
-V c)
-d)
 
-2- 
-V a)
-b)
-c)
-d)
 
+
+1- Considerando o esquema:
+    G(x,y) = x gosta de y
+    V(x) = x é um vampiro
+    Q(x) = x queima no sol
+    m = Márcio
+    c = Cláudia
+A correta formalização da frase "Márcio gosta de Cláudia e Márcio é um vampiro, logo, queima no sol" seria:
+a) (G(c,m))^(V(m) -> V(c))
+x b) (G(m,c))^(V(m) -> Q(m))
+c) (G(m,c))^(V(c) -> Q(c))
+d) G(m,c)^V(m)
+
+2- Considerando que h(x) significa "x é homem" e d(x) "x sabe dirigir", a frase "Todo homem sabe dirigir" seria representada por:
+(∃x)(h(x)->d(x))
+   
+Verdadeiro ()
+Falso (x)
 
 
 
