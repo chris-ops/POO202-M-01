@@ -108,34 +108,30 @@ public class Enigma4 extends Enigma{
 		JButton btnAlternativa2 = new JButton();
 		btnAlternativa2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-	              panel.setBackground(Color.GREEN);
-	              setQtdDecifrados(getQtdDecifrados()+1);
-	              System.out.println(getQtdDecifrados());
+	              setQtdErros(getQtdErros()+1);
+	              System.out.println(getQtdErros());
 	              m.serialize();
 				Clip clip;
-					File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\certo.wav");
-					setEstado(true);
-					if (file.exists()) {
-						try {
-							AudioInputStream sound = AudioSystem.getAudioInputStream(file);
-							 clip = AudioSystem.getClip();
-				              clip.open(sound);
-				              clip.start();
-
-						} catch (UnsupportedAudioFileException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						} catch (LineUnavailableException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+				File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\hitsound.wav");
+				if (file.exists()) {
+					try {
+						AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+						 clip = AudioSystem.getClip();
+			              clip.open(sound);
+			              clip.start();
+					} catch (UnsupportedAudioFileException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (LineUnavailableException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
+				}
 
 			}
-			
 		});
 		btnAlternativa2.setBounds(161, 97, 89, 23);
 		btnAlternativa2.setBackground(Color.GREEN);
@@ -177,31 +173,34 @@ public class Enigma4 extends Enigma{
 		JButton btnAlternativa4 = new JButton();
 		btnAlternativa4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-	              setQtdErros(getQtdErros()+1);
-	              System.out.println(getQtdErros());
+	              panel.setBackground(Color.GREEN);
+	              setQtdDecifrados(getQtdDecifrados()+1);
+	              System.out.println(getQtdDecifrados());
 	              m.serialize();
 				Clip clip;
-				File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\hitsound.wav");
-				if (file.exists()) {
-					try {
-						AudioInputStream sound = AudioSystem.getAudioInputStream(file);
-						 clip = AudioSystem.getClip();
-			              clip.open(sound);
-			              clip.start();
+					File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\certo.wav");
+					setEstado(true);
+					if (file.exists()) {
+						try {
+							AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+							 clip = AudioSystem.getClip();
+				              clip.open(sound);
+				              clip.start();
 
-					} catch (UnsupportedAudioFileException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (LineUnavailableException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						} catch (UnsupportedAudioFileException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (LineUnavailableException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
-				}
 
 			}
+			
 		});
 		btnAlternativa4.setBounds(161, 145, 89, 23);
 		btnAlternativa4.setBackground(Color.CYAN);

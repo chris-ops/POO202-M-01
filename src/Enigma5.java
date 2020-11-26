@@ -27,7 +27,7 @@ import javax.swing.JTextPane;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 
-public class Enigma1 extends Enigma{
+public class Enigma5 extends Enigma{
 
 	
 
@@ -50,7 +50,7 @@ public class Enigma1 extends Enigma{
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	public Enigma1() {
+	public Enigma5() {
 
 		panel = new JPanel();
 		panel.setBackground(Color.RED);
@@ -59,6 +59,41 @@ public class Enigma1 extends Enigma{
 		
 		JButton btnAlternativa1 = new JButton();
 		btnAlternativa1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+	              setQtdErros(getQtdErros()+1);
+	              System.out.println(m);
+	              m.serialize();
+	              
+				Clip clip;
+					File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\hitsound.wav");
+					if (file.exists()) {
+						try {
+							AudioInputStream sound = AudioSystem.getAudioInputStream(file);
+							 clip = AudioSystem.getClip();
+				              clip.open(sound);
+				              clip.start();
+
+						} catch (UnsupportedAudioFileException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (LineUnavailableException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+
+			}
+		});
+		btnAlternativa1.setBounds(25, 97, 89, 23);
+		btnAlternativa1.setOpaque(true);
+		btnAlternativa1.setBackground(Color.MAGENTA);
+		panel.add(btnAlternativa1);
+		
+		JButton btnAlternativa2 = new JButton();
+		btnAlternativa2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 	              setQtdDecifrados(getQtdDecifrados()+1);
 	              System.out.println(getQtdDecifrados());  
@@ -91,41 +126,6 @@ public class Enigma1 extends Enigma{
 
 			}
 			
-		});
-		btnAlternativa1.setBounds(25, 97, 89, 23);
-		btnAlternativa1.setOpaque(true);
-		btnAlternativa1.setBackground(Color.MAGENTA);
-		panel.add(btnAlternativa1);
-		
-		JButton btnAlternativa2 = new JButton();
-		btnAlternativa2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-	              setQtdErros(getQtdErros()+1);
-	              System.out.println(getQtdErros());
-	              m.serialize();
-				Clip clip;
-				File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\hitsound.wav");
-				if (file.exists()) {
-					try {
-						AudioInputStream sound = AudioSystem.getAudioInputStream(file);
-						 clip = AudioSystem.getClip();
-			              clip.open(sound);
-			              clip.start();
-
-			         
-					} catch (UnsupportedAudioFileException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} catch (LineUnavailableException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
-
-			}
 		});
 		btnAlternativa2.setBounds(161, 97, 89, 23);
 		btnAlternativa2.setBackground(Color.GREEN);
@@ -209,11 +209,16 @@ public class Enigma1 extends Enigma{
 		scrollPane.setViewportView(textPane);
 	
 		JPanel panel_1 = new JPanel();
-		textPane.setText("Faço aula de inglês ou jogo.\nEstudo programação ou faço aula de inglês.\nEstudo programação ou não durmo.\nOra, durmo. Logo:\n");
-		appendToPane(textPane, "a)Estudo programação e jogo.\n", Color.MAGENTA);
-		appendToPane(textPane, "b)Estudo progrmação e faço aula de inglês.\n", Color.GREEN);
-		appendToPane(textPane, "c)Faço aula de inglês e durmo.\n", Color.YELLOW);
-		appendToPane(textPane, "d)Não estudo programação e não durmo.", Color.CYAN);
+		textPane.setText("Considerando o esquema:\n"
+				+ " G(x,y) = x gosta de y"
+				+ "V(x) = x é um vampiro"
+				+ "Q(x) = x queima no sol"
+				+ "m = Márcio"
+				+ "c = Cláudia");
+		appendToPane(textPane, "a) (G(c,m))^(V(m) -> V(c))\n", Color.MAGENTA);
+		appendToPane(textPane, "b) (G(m,c))^(V(m) -> Q(m))\n", Color.GREEN);
+		appendToPane(textPane, "c) (G(m,c))^(V(c) -> Q(c))\n", Color.YELLOW);
+		appendToPane(textPane, "d) G(m,c)^V(m)", Color.CYAN);
 		panel_1.setLayout(null);
 
 	}
