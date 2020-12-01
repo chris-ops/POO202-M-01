@@ -36,7 +36,7 @@ public class Enigma1 extends Enigma {
 	protected static EnigmaLevel level;
 	
 	private JPanel panel;
-	private static ModuloM01 m = new ModuloM01();
+	
 	/**
 	 * Launch the application.
 	 * @wbp.parser.entryPoint
@@ -68,6 +68,7 @@ public class Enigma1 extends Enigma {
 	              setQtdDecifrados(getQtdDecifrados()+1);
 	              System.out.println(getQtdDecifrados());  
 	              m.serialize();
+	              panel.setBackground(Color.GREEN);
 				Clip clip;
 					File file = new File("C:\\Users\\yagakimi\\eclipse-workspace\\poofinal\\images\\certo.wav");
 					setEstado(true);
@@ -77,7 +78,7 @@ public class Enigma1 extends Enigma {
 							 clip = AudioSystem.getClip();
 				              clip.open(sound);
 				              clip.start();
-				              panel.setBackground(Color.GREEN);
+				              
 
 						} catch (UnsupportedAudioFileException e1) {
 							// TODO Auto-generated catch block
@@ -89,9 +90,7 @@ public class Enigma1 extends Enigma {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-					 catch (NullPointerException e1) {
-						 System.out.println("asd");
-					}
+
 					}
 
 			}

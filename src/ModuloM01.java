@@ -18,9 +18,9 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 	private ArrayList<Enigma> enigmas = new ArrayList<>();
 	Enigma ea;
 	String filename = "ModuloM01";
-	FileOutputStream fileOut;
-	FileInputStream fileIn;
-	BombInterface bomb;
+	transient FileOutputStream fileOut;
+	transient FileInputStream fileIn;
+	transient BombInterface bomb;
 	
 	
 	public ModuloM01() {
@@ -80,7 +80,7 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 	public JPanel getPanel(byte arg0) {
 		ea = enigmas.get(arg0-1);
 		JPanel j = ea.getPanel();
-		System.out.println("asd");
+		
 		this.deserialize();
 		return j;
 		
@@ -127,7 +127,7 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 		            in.close(); 
 		            fileIn.close(); 
 		              
-		            System.out.println("Object has been deserialized"); 
+		             
 
 		        } 
 		          
