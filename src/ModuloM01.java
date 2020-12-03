@@ -15,8 +15,8 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Enigma> enigmas = new ArrayList<>();
-	Enigma ea;
+	private ArrayList<EnigmaM01> enigmas = new ArrayList<>();
+	EnigmaM01 ea;
 	String filename = "ModuloM01";
 	transient FileOutputStream fileOut;
 	transient FileInputStream fileIn;
@@ -24,14 +24,18 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 	
 	
 	public ModuloM01() {
-		Enigma a = new Enigma1(this);
-		Enigma b = new Enigma2(this);
-		Enigma c = new Enigma3(this);
-		Enigma d = new Enigma4(this);
+		EnigmaM01 a = new Enigma01_1(this);
+		EnigmaM01 b = new Enigma01_2(this);
+		EnigmaM01 c = new Enigma01_3(this);
+		EnigmaM01 d = new Enigma01_4(this);
+		EnigmaM01 e = new Enigma01_5(this);
+		EnigmaM01 f = new Enigma01_6(this);
 		enigmas.add(0, a);
 		enigmas.add(1, b);
 		enigmas.add(2, c);
 		enigmas.add(3, d);
+		enigmas.add(4, e);
+		enigmas.add(5, f);
 	}
 
 
@@ -51,7 +55,11 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 
 	@Override
 	public int getHowManyActivations() {
-		return ea.getQtdAtivacoes();
+		int atv = 0;
+		for (EnigmaM01 ex : enigmas) {
+			atv += ex.getQtdAtivacoes();
+		}
+		return atv;
 		
 	}
 
@@ -80,7 +88,7 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 	public JPanel getPanel(byte arg0) {
 		ea = enigmas.get(arg0-1);
 		JPanel j = ea.getPanel();
-		
+		ea.setQtdUsos(ea.getQtdUsos()+1);
 		this.deserialize();
 		return j;
 		
@@ -114,6 +122,7 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
             System.out.println("IOException is caught"); 
         } 
 	}
+		@SuppressWarnings("unchecked")
 		public void deserialize() {
 		       try
 		        {    
@@ -122,7 +131,7 @@ public class ModuloM01 implements ModuleInterface, java.io.Serializable  {
 		            ObjectInputStream in = new ObjectInputStream(fileIn); 
 		              
 		            // Method for deserialization of object 
-		            enigmas = (ArrayList<Enigma>) in.readObject(); 
+		            enigmas = (ArrayList<EnigmaM01>) in.readObject(); 
 		              
 		            in.close(); 
 		            fileIn.close(); 
